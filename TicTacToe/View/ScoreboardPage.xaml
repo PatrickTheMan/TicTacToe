@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TicTacToe.View.ScoreboardPage"
+             Title="ScoreboardPage"
+             xmlns:viewmodel="clr-namespace:TicTacToe.ViewModel"
+             x:DataType="viewmodel:ScoreboardPageViewModel"
+             xmlns:scoreboardentry="clr-namespace:TicTacToe.Domain"
+             >
+    
+    <VerticalStackLayout
+        Spacing="25"
+        Padding="30,0"
+        VerticalOptions="Center"
+        HorizontalOptions="Center">
+        
+        <Label 
+            Text="Scoreboard"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+
+        <CollectionView
+            ItemsSource="{Binding ScoreboardEntries}"
+            WidthRequest="250"
+            >
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="scoreboardentry:ScoreboardEntry">
+                    <Border 
+                        StrokeThickness="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding Name}"
+                               Grid.Column="0"
+                               HorizontalOptions="Center"/>
+
+                            <Label Text="{Binding Score}"
+                               Grid.Column="3"
+                               HorizontalOptions="Center"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+    </VerticalStackLayout>
+</ContentPage>

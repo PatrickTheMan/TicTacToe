@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TicTacToe.View.GamePage"
+             Title="GamePage"
+             xmlns:viewmodel="clr-namespace:TicTacToe.ViewModel"
+             x:DataType="viewmodel:GamePageViewModel">
+
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid
+            Padding="25"
+            Grid.Row="0"
+            Grid.Column="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border
+                x:Name="player1Highlight"
+                Grid.Row="0"
+                Grid.Column="0"
+                BackgroundColor="Green"
+                IsVisible="{Binding YourTurn}">
+            </Border>
+            <Label 
+                x:Name="player1Name"
+                Text="{Binding Player1.Name}"
+                Grid.Row="0"
+                Grid.Column="0"/>
+            <Label 
+                x:Name="player1Id"
+                Text="{Binding Player1.Id}"
+                Grid.Row="1"
+                Grid.Column="0"/>
+            <Label 
+                Text="{Binding Player1.type}"
+                Grid.Row="2"
+                Grid.Column="0"/>
+
+            <Border
+                x:Name="player2Highlight"
+                Grid.Row="0"
+                Grid.Column="2"
+                BackgroundColor="Green"
+                IsVisible="{Binding OpponentsTurn}">
+            </Border>
+            <Label 
+                x:Name="player2Name"
+                Text="{Binding Player2.Name}"
+                Grid.Row="0"
+                Grid.Column="2"/>
+            <Label 
+                x:Name="player2Id"
+                Text="{Binding Player2.Id}"
+                Grid.Row="1"
+                Grid.Column="2"/>
+            <Label 
+                Text="{Binding Player2.type}"
+                Grid.Row="2"
+                Grid.Column="2"/>
+
+        </Grid>
+
+        <Grid
+            Padding="25"
+            Grid.Row="1"
+            Grid.Column="1"
+            x:Name="gameBoardSpace"
+            IsVisible="{Binding YourTurn}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+        </Grid>
+
+    </Grid>
+    
+</ContentPage>
